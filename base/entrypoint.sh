@@ -65,4 +65,5 @@ do
     wait_for_it ${i}
 done
 
+export HBASE_VERSION=1.1.2
 exec $@

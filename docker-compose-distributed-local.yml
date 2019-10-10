@@ -73,7 +73,7 @@ services:
       - 2181:2181
 
   hbase-master:
-    image: bde2020/hbase-master:1.0.0-hbase1.2.6
+    image: albelash/hbase-master:1.0.0-hbase1.1.2
     container_name: hbase-master
     hostname: hbase-master
     env_file:
@@ -84,7 +84,7 @@ services:
       - 16010:16010
 
   hbase-region:
-    image: bde2020/hbase-regionserver:1.0.0-hbase1.2.6
+    image: albelash/hbase-regionserver:1.0.0-hbase1.1.2
     container_name: hbase-regionserver
     hostname: hbase-regionserver
     env_file:
