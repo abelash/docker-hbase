@@ -4,6 +4,7 @@ services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
     container_name: namenode
+    hostname: namenode
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
@@ -14,6 +15,7 @@ services:
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     container_name: datanode
+    hostname: datanode
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
     environment:
@@ -24,6 +26,7 @@ services:
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop2.7.4-java8
     container_name: resourcemanager
+    hostname: resourcemanager
     environment:
       SERVICE_PRECONDITION: "namenode:50070 datanode:50075"
     env_file:
@@ -32,6 +35,7 @@ services:
   nodemanager1:
     image: bde2020/hadoop-nodemanager:2.0.0-hadoop2.7.4-java8
     container_name: nodemanager
+    hostname: nodemanager
     environment:
       SERVICE_PRECONDITION: "namenode:50070 datanode:50075 resourcemanager:8088"
     env_file:
@@ -40,6 +44,7 @@ services:
   historyserver:
     image: bde2020/hadoop-historyserver:2.0.0-hadoop2.7.4-java8
     container_name: historyserver
+    hostname: historyserver
     volumes:
       - hadoop_historyserver:/hadoop/yarn/timeline
     environment:
@@ -50,6 +55,7 @@ services:
   hbase:
     image: bde2020/hbase-standalone:1.0.0-hbase1.2.6
     container_name: hbase
+    hostname: hbase
     volumes:
       - hbase_data:/hbase-data
       - hbase_zookeeper_data:/zookeeper-data
