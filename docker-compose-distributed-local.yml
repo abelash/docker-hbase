@@ -96,7 +96,6 @@ services:
     ports:
       - 16020:16020
       - 16030:16030
-      - 16020:16020
 
 volumes:
   hadoop_namenode:
